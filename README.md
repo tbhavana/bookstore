@@ -1,3 +1,5 @@
+#Bookstore
+
 Built using Django Framework, *bookstore* is a deployment-ready e-commerce platform for selling books.
 
 Developed as a course project for DBMS course at IIIT.
