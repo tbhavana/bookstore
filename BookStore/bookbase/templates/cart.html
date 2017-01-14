@@ -1,0 +1,53 @@
+{%load staticfiles%}
+
+<html>
+{% include 'resource.html'%}
+<body>
+<div class = "row">
+<div class ="col-md-6"><h1><span class="glyphicon glyphicon-book" aria-hidden="true"></span> BookStore <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></h1></div>
+
+{%if user.is_authenticated%}
+
+ <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{user.get_full_name}}
+ <div class="dropdown" >
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+  </button>
+  
+  <ul id="user-dropmenu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">View Cart</a></li>
+    <li><a href="#">SignOut</a></li>
+  </ul>
+
+
+</div>
+</div>
+<br>
+
+{% for books in cartOfUser%}
+	<div class="row">
+		<div class="col-md-6">
+			<li><b>{{books.title}}<b></li>	
+			<img src="{{books.image.url}}" height="150" width ="125" border="1" />
+		</div>	
+		<div class ="col-md-6" id ="cart_price">	
+			<p><b>&#8377 {{books.price}}</b></p>
+		</div>
+		<div class="col-md-offset-10">
+			<a href="/deleteFromCart/{{books.id}}"><button class="btn btn-danger">Remove from cart</button></a>		
+		</div>
+	</div>
+	<br>
+		
+{% endfor %}
+<div class="container" id ="cart_price">
+		<p><b>TOTAL: &#8377 {{total_price}}</p>
+	</div>
+<div class="row">	
+<div class="col-md-6" id="cart-button"><center><a href="/books/"><button class="btn btn-primary">CONTINUE SHOPPING</button></a></center></div>
+<div class="col-md-6" id="cart-button"><center><a href="/payment/"><button class="btn btn-primary">PROCEED TO PAYMENT</button></a></center></div>	
+	
+</div>
+{% endif %}
+
+</html>

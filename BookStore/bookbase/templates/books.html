@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<html>
+{% include 'resource.html'%}
+<body>
+<div class = "row">
+	<div class ="col-md-6"><h1><span class="glyphicon glyphicon-book" aria-hidden="true"></span>BookStore</h1></div>
+	<div class = "col-md-6">
+		<div class="col-md-6" id="user"><span> {{user.get_full_name}}</span></div>
+	</div>
+	
+</div>
+{% include 'filters.html' %}
+<div class ="container">
+	<center><h5>{{ no_books }}</h5></center>
+	{% for book in book_list %}
+	<div class ="row" id="book">
+		<div class ="col-md-8">
+			<li><b>{{book.title}}<b></li>	
+			<img src="{{book.image.url}}" height="150" width ="125" border="1" style="margin-left:30px;"/>
+			<p>{{book.description}}</p>
+			<p>Rating: {{book.rating}}</p>
+		</div>
+		<div class="col-md-4">
+		<p>&#8377; {{book.price}}</p>
+		{% if user.is_authenticated%}
+			{% if not book.in_user_cart %}
+		<a href="/AddingtoCart/{{book.id}}"><button id="Addtocart" data-bookId="{{book.id}}" class ="btn-sm btn-primary">ADD TO CART</button></a>
+		{% endif %}
+		{% if book.in_user_cart %}
+		<a href="/cart/"><span>View Cart</span></a>
+		{% endif %}
+		{% else %}
+		<a href="/accounts/login"><button class="btn-sm btn-primary">ADD TO CART</button></a>
+		{% endif %}
+	</div>
+</div>
+	{% endfor %}	
+</div>
+</body>
+</html> 
+

@@ -1,0 +1,76 @@
+<div class="row">
+<div class="col-md-offset-6 col-lg-offset-6">
+	
+	<div class="col-md-1 col-lg-1"><span>Filters:</span></div>
+	<div class="dropdown col-md-2 col-lg-2">
+		<button class="btn btn-default dropdown-toggle" type="button" id="category-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Category
+    		         <span class="caret"></span>
+  		</button>
+  
+  		<ul id="bb-dropmenu" class="dropdown-menu" aria-labelledby="category-drop">
+			{% for category in categories %}
+    			<li><a href="?category={{category.code}}&genre={{genre_q}}&age={{ age_q  }}">{{category.text}}</a></li>
+			{%endfor%}
+    		</ul>	
+	</div>
+
+
+	<div class="dropdown col-md-2 col-lg-2">
+		<button class="btn btn-default dropdown-toggle" type="button" id="agegroup-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Age Group
+    		         <span class="caret"></span>
+  		</button>
+  
+  		<ul id="bb-dropmenu" class="dropdown-menu" aria-labelledby="agegroup-drop">
+			{% for age in agegroups %}
+    			<li><a href="?category={{cat_q }}&age={{age.code}}&genre={{ genre_q }}">{{age.text}}</a></li>
+			{%endfor%}
+    		</ul>	
+	</div>
+
+	{%ifequal cat_q  "1" %}
+	<div class="dropdown col-md-2 col-lg-2">
+		<button class="btn btn-default dropdown-toggle" type="button" id="tag-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Genre
+    		         <span class="caret"></span>
+  		</button>
+  
+  		<ul id="bb-dropmenu" class="dropdown-menu" aria-labelledby="tag-drop">
+			{% for tag in tags %}
+    			<li><a href="?category={{cat_q}}&genre={{ tag.code}}&age={{ age_q }}">{{tag.text}}</a></li>
+			{%endfor%}
+    		</ul>	
+	</div>
+	{%endifequal %}
+	{% ifequal cat_q "2"%}
+
+	<div class="dropdown col-md-2 col-lg-2">
+		<button class="btn btn-default dropdown-toggle" type="button" id="genre-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Genre
+    		         <span class="caret"></span>
+  		</button>
+  
+  		<ul id="bb-dropmenu" class="dropdown-menu" aria-labelledby="genre-drop">
+			{% for genre in genres %}
+    			<li><a href="?category={{cat_q}}&genre={{genre.code}}&age={{ age_q }}">{{genre.text}}</a></li>
+			{%endfor%}
+    		</ul>	
+	</div>
+	{%endifequal %}
+</div> 
+<div class="dropdown col-md-2">
+	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-	expanded="true">
+	    SortBy
+	    <span class="caret"></span>
+	  </button>
+  
+	  <ul id="bb-dropmenu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	    <li><a href="?sortby=price_low">Price:Low to High</a></li>
+	    <li><a href="?sortby=price_high">Price:High to Low</a></li>
+	    <li><a href="?sortby=rating">Rating</a></li>
+	    <li><a href="?sortby=title">Title</a></li>
+	  </ul>
+
+</div>
+</div>

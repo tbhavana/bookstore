@@ -1,0 +1,54 @@
+body{
+	background: linear-gradient(#009688,#20B2AA);
+  background-repeat: no-repeat;
+}
+
+.row{
+  background-color: #FFFFFF;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+      width: 70%;
+      height:70%;
+      margin: auto;
+  }
+
+div > h1{
+    font-size: 68px;
+    font-family: Courier, "Lucida Console", monospace;
+}  
+
+#form{
+	margin-top: 30px;
+	}
+
+#signUpLink{
+  margin-left: 200px;
+
+}  
+#book{
+  margin-top: 30px;
+}
+#bb-dropmenu{
+      position: absolute;
+    left: calc(0%);
+}
+#user-dropmenu{
+  position: absolute;
+  left:calc(0%);
+}
+#bottom-button{
+  background-color: #20B2AA;
+  margin-top:25px;
+}
+#user{
+  margin-left: 100px;
+}
+#cart_price{
+  font-size: 30px
+}
+#FormStart{
+  margin-top: 50px;
+}
+
